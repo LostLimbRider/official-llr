@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Mission | Lost Limb Riders</title>
+  <meta name="description" content="Building Hope, Independence, and Community for Amputees and People with Disabilities - The Lost Limb Riders mission proposal by founder John Thompson.">
+  <style>
+    :root {
+      --orange: #ff6a00;
+      --orange-dark: #c94f00;
+      --black: #050505;
+      --charcoal: #101010;
+      --card: #171717;
+      --line: rgba(255,255,255,.14);
+      --muted: #b7b7b7;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(0,0,0,.45);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,106,0,.18), transparent 28rem),
+        radial-gradient(circle at 90% 18%, rgba(255,106,0,.12), transparent 26rem),
+        linear-gradient(180deg, rgba(255,255,255,.03), transparent 18rem);
+      z-index: -1;
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 7vw;
+      background: rgba(5,5,5,.88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 220px;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #dedede;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover { color: var(--orange); }
+
+    h1, h2, h3, p { margin-top: 0; }
+    .wrap { max-width: 1180px; margin: 0 auto; }
+    .orange { color: var(--orange); }
+
+    .mission-hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 92vh;
+      text-align: center;
+      padding: 100px 7vw;
+      background:
+        linear-gradient(180deg, rgba(5,5,5,.6) 0%, rgba(5,5,5,.95) 100%),
+        url("assets/LLR COVER POSTER.png") center / cover no-repeat;
+    }
+
+    .mission-hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 180px;
+      background: linear-gradient(to bottom, transparent, var(--black));
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      border: 1px solid rgba(255,106,0,.75);
+      border-radius: 999px;
+      padding: 10px 18px;
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      background: rgba(255,106,0,.08);
+      margin-bottom: 32px;
+      z-index: 1;
+    }
+
+    .mission-hero h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 10px;
+      font-size: clamp(62px, 11vw, 140px);
+      line-height: .82;
+      letter-spacing: -.06em;
+      text-transform: uppercase;
+    }
+
+    .mission-hero .subtitle {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin: 0 auto 40px;
+      color: #e0e0e0;
+      font-size: clamp(18px, 2.4vw, 26px);
+      line-height: 1.45;
+      font-style: italic;
+    }
+
+    .contact-strip {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 36px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .contact-strip strong { color: var(--white); }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      border: 0;
+      margin: 0;
+      background: linear-gradient(90deg, transparent, var(--orange), transparent);
+      opacity: .4;
+    }
+
+    section { padding: 90px 7vw; }
+
+    .section-heading {
+      max-width: 900px;
+      margin-bottom: 40px;
+    }
+
+    .section-number {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 8px 18px;
+      border: 1px solid rgba(255,106,0,.5);
+      border-radius: 999px;
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      background: rgba(255,106,0,.06);
+    }
+
+    .section-title {
+      font-size: clamp(38px, 5.5vw, 76px);
+      line-height: .92;
+      letter-spacing: -.04em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .section-lead {
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.6;
+    }
+
+    .prose {
+      max-width: 880px;
+      color: #d4d4d4;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .prose p {
+      margin-bottom: 24px;
+      color: #d4d4d4;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .prose strong { color: var(--white); }
+    .prose em { color: #e8e8e8; }
+
+    .card {
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(28,28,28,.92), rgba(9,9,9,.92));
+      box-shadow: var(--shadow);
+    }
+    .card h3 { color: var(--orange); font-size: 26px; margin-bottom: 14px; }
+    .card p { color: var(--muted); line-height: 1.65; font-size: 17px; }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+
+    .panel {
+      padding: 36px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(28,28,28,.92), rgba(9,9,9,.92));
+      box-shadow: var(--shadow);
+    }
+    .panel h3 { color: var(--orange); font-size: 24px; margin-bottom: 14px; }
+    .panel p { color: var(--muted); line-height: 1.65; font-size: 17px; }
+
+    .statement {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255,106,0,.16), rgba(255,255,255,.03));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 100px 7vw;
+    }
+    .statement h2 {
+      margin: 0;
+      font-size: clamp(38px, 6.5vw, 86px);
+      line-height: .92;
+      letter-spacing: -.05em;
+      text-transform: uppercase;
+    }
+
+    .quote-box {
+      margin: 30px 0;
+      padding: 30px 36px;
+      border-left: 6px solid var(--orange);
+      border-radius: 18px;
+      background: rgba(255,106,0,.08);
+    }
+    .quote-box h3 { margin: 0 0 10px; color: var(--white); font-size: clamp(30px, 4vw, 48px); line-height: 1.1; }
+    .quote-box p { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.6; }
+
+    .styled-list { margin: 20px 0; padding: 0; list-style: none; }
+    .styled-list li {
+      position: relative;
+      padding: 12px 0 12px 30px;
+      color: #d4d4d4;
+      font-size: 18px;
+      line-height: 1.6;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .styled-list li:last-child { border-bottom: 0; }
+    .styled-list li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+      font-weight: 900;
+    }
+
+    .bullet-list { margin: 20px 0; padding: 0; list-style: none; }
+    .bullet-list li {
+      position: relative;
+      padding: 10px 0 10px 28px;
+      color: #d4d4d4;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .bullet-list li::before {
+      content: "\2014";
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+      font-weight: 900;
+    }
+
+    .tag-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .tag {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 20px;
+      border: 1px solid rgba(255,106,0,.3);
+      border-radius: 14px;
+      background: rgba(255,106,0,.06);
+      color: #e0e0e0;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .tag::before {
+      content: "\25B8";
+      color: var(--orange);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .fund-card { position: relative; overflow: hidden; }
+    .fund-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--orange), var(--orange-dark));
+      border-radius: 28px 28px 0 0;
+    }
+
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255,106,0,.12), rgba(255,255,255,.02));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 15px 22px;
+      border: 0;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--orange);
+      color: #111;
+      box-shadow: 0 18px 36px rgba(255,106,0,.2);
+    }
+    .btn-primary:hover { background: #ff7b1f; }
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.28);
+      color: var(--white);
+      background: rgba(255,255,255,.07);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,.12); }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 24px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      text-decoration: none;
+      color: #e0e0e0;
+      font-size: 17px;
+      font-weight: 700;
+      transition: all .25s ease;
+    }
+    .toc-item:hover {
+      border-color: rgba(255,106,0,.5);
+      background: rgba(255,106,0,.06);
+      color: var(--orange);
+    }
+    .toc-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(255,106,0,.12);
+      color: var(--orange);
+      font-size: 18px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .closing-footer {
+      text-align: center;
+      padding: 48px 7vw 32px;
+      color: var(--muted);
+      font-size: 15px;
+      border-top: 1px solid var(--line);
+    }
+    .closing-footer .logo-footer {
+      width: 60px;
+      margin: 0 auto 18px;
+      opacity: .7;
+    }
+    .closing-footer strong { color: var(--white); }
+
+    footer {
+      padding: 34px 7vw;
+      color: #858585;
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 940px) {
+      .nav { position: static; align-items: flex-start; flex-direction: column; }
+      .nav-links { flex-wrap: wrap; }
+      .grid-3, .grid-2, .tag-grid { grid-template-columns: 1fr; }
+      .mission-hero { min-height: auto; padding: 60px 7vw; background-position: center; }
+      .mission-hero::after { display: none; }
+    }
+
+    @media (max-width: 560px) {
+      .brand { min-width: 0; }
+      .brand img { width: 44px; height: 44px; }
+      .nav-links { gap: 12px; font-size: 12px; }
+      section, .mission-hero { padding-left: 22px; padding-right: 22px; }
+      h1 { letter-spacing: -.045em; }
+      .contact-strip { flex-direction: column; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="index.html" aria-label="Lost Limb Riders home">
+      <img src="assets/logo-nobg.png" alt="Lost Limb Riders logo">
+      <span>Lost Limb Riders</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="mission.html" style="color:var(--orange)">Mission</a>
+      <a href="index.html#keynote">Book John</a>
+      <a href="index.html#book">Book</a>
+      <a href="index.html#guestbook">Guest Book</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="mission-hero" id="mission-top">
+    <div class="eyebrow">Proposal &bull; July 2026</div>
+    <h1>Lost Limb <span class="orange">Riders</span></h1>
+    <p class="subtitle">Building Hope, Independence, and Community for Amputees and People with Disabilities</p>
+    <div class="contact-strip">
+      <span><strong>Proposal Prepared by:</strong> John Thompson, Founder</span>
+      <span><strong>Date:</strong> July 2026</span>
+      <span><strong>Contact:</strong> 515&#8209;890&#8209;5765</span>
+    </div>
+    <div class="contact-strip" style="margin-top:4px; font-size:15px;">
+      <span>514 N 6th St, Fort Dodge, IA 50501</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- TABLE OF CONTENTS -->
+    <section style="padding-top: 60px; padding-bottom: 60px;">
+      <div class="wrap">
+        <div class="section-heading" style="text-align:center; max-width:100%;">
+          <h2 class="section-title" style="text-align:center;">Table of <span class="orange">Contents</span></h2>
+        </div>
+        <div class="toc-grid">
+          <a class="toc-item" href="#story"><span class="toc-num">1</span> Our Story</a>
+          <a class="toc-item" href="#mission-statement"><span class="toc-num">2</span> Our Mission</a>
+          <a class="toc-item" href="#vision"><span class="toc-num">3</span> The Vision</a>
+          <a class="toc-item" href="#funds"><span class="toc-num">4</span> How the Funds Will Help</a>
+          <a class="toc-item" href="#help"><span class="toc-num">5</span> Why We&#8217;re Asking for Help</a>
+          <a class="toc-item" href="#involved"><span class="toc-num">6</span> How People Can Get Involved</a>
+          <a class="toc-item" href="#closing"><span class="toc-num">7</span> Closing</a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 1. OUR STORY -->
+    <section id="story">
+      <div class="wrap">
+        <div class="section-heading">
+          <span class="section-number">Section 1</span>
+          <h2 class="section-title">Our <span class="orange">Story</span></h2>
+        </div>
+        <div class="prose">
+          <p>John Thompson knows what it feels like to lose everything and have to rebuild from nothing.</p>
+          <p>A serious illness led to the amputation of his right leg below the knee. The surgery saved his life, but it also thrust him into a world most people never see &mdash; a world of hospital rooms, rehabilitation centers, phantom pain, prosthetic fittings, and the slow, grueling work of learning to walk again.</p>
+          <p>During those early days of recovery, John faced something just as painful as the physical loss: <strong>isolation</strong>. He didn't know another amputee. He had never seen someone with a prosthetic leg living a full, active life. He had no roadmap, no community, and no one who truly understood what he was going through.</p>
+          <p>That changed when he connected with a community of amputees who rode motorcycles together. They didn't treat him like a patient. They didn't feel sorry for him. They treated him like one of them &mdash; someone who had been through hell and come out the other side. They showed him that losing a limb didn't mean losing his life. It meant finding a different road.</p>
+          <p>That experience planted a seed.</p>
+          <p>John realized that what had helped him most wasn't a medication or a medical device &mdash; it was <strong>people</strong>. Real people who had walked the same road and could say, with honesty and authority, <em>"I know what you're going through. And you're going to be okay."</em></p>
+          <p>Lost Limb Riders was born from that conviction.</p>
+          <p>John believes that no amputee should ever have to face the journey alone. Not in the hospital. Not in rehabilitation. Not at home. Not on the hardest days or the best ones. Every person who loses a limb deserves to know that there is a community waiting for them &mdash; people who will stand beside them, ride with them, and remind them that their life is far from over.</p>
+          <p>That is why Lost Limb Riders exists.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATEMENT BREAK -->
+    <div class="statement" aria-label="Motto">
+      <div class="wrap">
+        <h2>No Amputee Should Ever<br><span class="orange">Face the Journey Alone.</span></h2>
+      </div>
+    </div>
+
+    <!-- 2. OUR MISSION -->
+    <section id="mission-statement">
+      <div class="wrap">
+        <div class="section-heading">
+          <span class="section-number">Section 2</span>
+          <h2 class="section-title">Our <span class="orange">Mission</span></h2>
+        </div>
+        <div class="prose">
+          <p>Lost Limb Riders exists to provide hope, peer support, mentorship, education, and opportunity to amputees and people with disabilities.</p>
+          <p>Our mission is built on a simple but powerful belief: <strong>no one should have to navigate limb loss alone.</strong></p>
+          <p>Through peer visitation, mentorship programs, community rides, and fundraising events, we work to help amputees and people with disabilities regain confidence, independence, and a sense of belonging.</p>
+        </div>
+
+        <h3 style="color:var(--orange); font-size:24px; margin:40px 0 20px; text-transform:uppercase; letter-spacing:.05em;">We Serve</h3>
+        <div class="tag-grid">
+          <div class="tag">Recent amputees recovering from traumatic, medical, or congenital limb loss</div>
+          <div class="tag">Long-term amputees seeking connection and community</div>
+          <div class="tag">Families and caregivers who need support and understanding</div>
+          <div class="tag">Veterans and first responders living with limb differences</div>
+          <div class="tag">Children and young people born with or acquired limb differences</div>
+        </div>
+
+        <div class="quote-box" style="margin-top:50px;">
+          <h3>What Makes Us Different</h3>
+          <p>We are not a clinical program. We are not a hospital. We are a community of people who have lived the experience and choose to show up for others. The motorcycle aspect of our organization is not incidental &mdash; it is central. Riding together breaks down barriers. It transforms the conversation from illness and loss into freedom, adventure, and capability. It shows the world &mdash; and more importantly, it shows new amputees &mdash; that life after limb loss is not smaller. It is different. And it can be extraordinary.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 3. THE VISION -->
+    <section id="vision">
+      <div class="wrap">
+        <div class="section-heading">
+          <span class="section-number">Section 3</span>
+          <h2 class="section-title">The <span class="orange">Vision</span></h2>
+        </div>
+        <div class="prose">
+          <p>Lost Limb Riders envisions an annual fundraising ride and community event in Iowa that brings together amputees, people with disabilities, motorcyclists, families, businesses, healthcare providers, and community supporters.</p>
+          <p>This event will be more than a fundraiser. It will be a <strong>celebration of life after limb loss.</strong></p>
+        </div>
+
+        <h3 style="color:var(--orange); font-size:24px; margin:40px 0 20px; text-transform:uppercase; letter-spacing:.05em;">What the Event Will Include</h3>
+        <div class="grid-3">
+          <div class="card fund-card">
+            <h3>The Ride</h3>
+            <p>A scenic motorcycle ride open to all riders &mdash; amputee and non-amputee alike</p>
+          </div>
+          <div class="card fund-card">
+            <h3>Community Gathering</h3>
+            <p>Food, music, and activities for families in a welcoming, inclusive environment</p>
+          </div>
+          <div class="card fund-card">
+            <h3>Vendor Booths</h3>
+            <p>Prosthetic companies, adaptive equipment providers, and disability services</p>
+          </div>
+          <div class="card fund-card">
+            <h3>Live Testimonials</h3>
+            <p>Amputees sharing their stories of recovery and resilience with the community</p>
+          </div>
+          <div class="card fund-card">
+            <h3>Family Programming</h3>
+            <p>A kids' area and family-friendly activities for attendees of all ages</p>
+          </div>
+          <div class="card fund-card">
+            <h3>Healthcare Connections</h3>
+            <p>Opportunities for healthcare providers to connect with the community they serve</p>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top: 40px;">
+          <h3>Why Iowa</h3>
+          <p>Iowa is home. It is where John Thompson rebuilt his life. It is where the need exists for this kind of community &mdash; in cities and in rural towns, in hospitals and in homes, across every age group and every background. Iowa has a strong tradition of community, generosity, and people showing up for each other. Lost Limb Riders will be another expression of that tradition.</p>
+          <p>The goal is to grow the event year after year, building recognition, expanding reach, and deepening impact &mdash; until every amputee in Iowa and beyond knows that Lost Limb Riders exists and that they have a place with us.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATEMENT BREAK -->
+    <div class="statement" aria-label="Vision statement">
+      <div class="wrap">
+        <h2>More Than a Fundraiser.<br><span class="orange">A Celebration of Life.</span></h2>
+      </div>
+    </div>
+
+    <!-- 4. HOW THE FUNDS WILL HELP -->
+    <section id="funds">
+      <div class="wrap">
+        <div class="section-heading">
+          <span class="section-number">Section 4</span>
+          <h2 class="section-title">How the Funds<br><span class="orange">Will Help</span></h2>
+          <p class="section-lead">Every dollar raised by Lost Limb Riders goes directly toward serving amputees and people with disabilities. Our programs address the real, practical challenges that people face during and after limb loss.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card fund-card">
+            <h3>Prosthetic Assistance</h3>
+            <p>Prosthetic limbs and components are expensive. Insurance often covers only a portion of the cost, and many amputees face gaps of thousands of dollars. Lost Limb Riders will help bridge that gap by providing financial assistance for prosthetic components, maintenance, and upgrades.</p>
+          </div>
+          <div class="card fund-card">
+            <h3>Adaptive Equipment</h3>
+            <p>Beyond prosthetics, amputees often need adaptive equipment to return to daily life &mdash; modified tools, vehicle adaptations, home modifications, and specialized gear. Our fund will help cover these essential items.</p>
+          </div>
+          <div class="card fund-card">
+            <h3>Transportation</h3>
+            <p>Recovery requires consistent medical care, and getting to appointments can be a significant barrier &mdash; especially in rural Iowa. Lost Limb Riders will provide transportation assistance so that no one misses a critical appointment because they can't get there.</p>
+          </div>
+          <div class="card fund-card">
+            <h3>Emergency Assistance</h3>
+            <p>Life doesn't pause for recovery. When amputees face unexpected financial hardships &mdash; a car repair, a utility bill, an urgent medical need &mdash; Lost Limb Riders will be there with emergency assistance to help them stay on their feet.</p>
+          </div>
+          <div class="card fund-card">
+            <h3>Peer Mentoring</h3>
+            <p>Our peer mentoring program matches new amputees with experienced ones who have walked the same road. Funding will support training, coordination, and the resources mentors need to be effective and compassionate guides.</p>
+          </div>
+          <div class="card fund-card">
+            <h3>Educational Programs</h3>
+            <p>We will develop and deliver educational programs for amputees, families, healthcare providers, and the general public covering prosthetic care, adaptive living, mental health, and community resources.</p>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:30px;">
+          <h3>Scholarships for Rehabilitation</h3>
+          <p>For amputees who need additional rehabilitation services &mdash; physical therapy, occupational therapy, counseling, or vocational training &mdash; Lost Limb Riders will offer scholarships to help cover the cost of those services when insurance and personal resources fall short.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 5. WHY WE'RE ASKING FOR HELP -->
+    <section id="help">
+      <div class="wrap">
+        <div class="section-heading">
+          <span class="section-number">Section 5</span>
+          <h2 class="section-title">Why We're Asking<br><span class="orange">for Help</span></h2>
+        </div>
+        <div class="prose">
+          <p>Lost Limb Riders is John Thompson's mission, but it cannot be built alone.</p>
+          <p>John is a survivor, an advocate, and a leader. He has the vision, the passion, and the lived experience to drive this organization forward. What he is seeking now is <strong>guidance from people who have done this before.</strong></p>
+          <p>There are community leaders, event organizers, and experienced fundraisers in Iowa who have successfully built and run charitable events &mdash; people like the organizers of the Angel Ride and similar community-driven fundraising efforts. John is reaching out to these individuals and organizations to ask for their wisdom, their mentorship, and their partnership.</p>
+        </div>
+
+        <div class="grid-2" style="margin-top:40px;">
+          <div class="panel">
+            <h3>What We Are Asking For</h3>
+            <ul class="styled-list">
+              <li><strong>Mentorship</strong> from experienced nonprofit leaders and event organizers who can share what they have learned about building community support, securing sponsorships, and running successful fundraising events</li>
+              <li><strong>Guidance</strong> on best practices for nonprofit governance, financial management, and event planning</li>
+              <li><strong>Partnerships</strong> with hospitals, rehabilitation centers, healthcare providers, and businesses that share our commitment to serving people with disabilities</li>
+              <li><strong>Connections</strong> to community networks, media outlets, and civic organizations that can help amplify our message</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>What We Are Not Asking For</h3>
+            <p>We are not asking anyone to take over our mission. This is John's vision, John's story, and John's organization. We are asking for the kind of support that helps good ideas become great outcomes &mdash; the kind of guidance that comes from people who know what it takes to turn a mission into a movement.</p>
+            <div class="quote-box" style="margin-top:24px;">
+              <p>John has never been afraid to ask for help when the cause is bigger than himself. He knows that the strongest organizations are built not by one person, but by a community of people who believe in the same thing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATEMENT BREAK -->
+    <div class="statement" aria-label="Call to action">
+      <div class="wrap">
+        <h2>The Strongest Organizations Are Built<br><span class="orange">by a Community.</span></h2>
+      </div>
+    </div>
+
+    <!-- 6. HOW PEOPLE CAN GET INVOLVED -->
+    <section id="involved">
+      <div class="wrap">
+        <div class="section-heading">
+          <span class="section-number">Section 6</span>
+          <h2 class="section-title">How People Can<br><span class="orange">Get Involved</span></h2>
+          <p class="section-lead">Lost Limb Riders welcomes everyone who shares our belief that no amputee should face the journey alone. There are many ways to be part of what we are building.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card fund-card">
+            <h3>Volunteer</h3>
+            <p>Volunteers are the backbone of Lost Limb Riders. We need people for peer visits, event planning, administration, outreach, and more. You don't have to be an amputee to volunteer &mdash; you just have to care.</p>
+          </div>
+          <div class="card fund-card">
+            <h3>Sponsor</h3>
+            <p>Businesses and organizations can sponsor rides, events, and programs. Sponsorship provides essential funding while giving sponsors visibility in a growing, community-driven organization. Packages are available for businesses of all sizes.</p>
+          </div>
+          <div class="card fund-card">
+            <h3>Donate</h3>
+            <p>Every dollar makes a difference. Donations fund prosthetics, adaptive equipment, transportation, emergency assistance, peer mentoring, education, and rehabilitation scholarships. All donations are tax-deductible.</p>
+          </div>
+          <div class="card fund-card">
+            <h3>Join the Planning Committee</h3>
+            <p>We are building a planning committee for our inaugural annual ride and community event. If you have experience in event planning, marketing, fundraising, logistics, or community organizing &mdash; or if you simply want to help &mdash; we want you at the table.</p>
+          </div>
+          <div class="card fund-card">
+            <h3>Spread the Word</h3>
+            <p>Tell people about Lost Limb Riders. Share our story. Connect us with amputees, families, healthcare providers, and community leaders who might benefit from or support our mission. The more people who know we exist, the more lives we can reach.</p>
+          </div>
+          <div class="card fund-card">
+            <h3>Refer Someone</h3>
+            <p>If you know an amputee &mdash; recent or long-term &mdash; who could benefit from peer support, community, or resources, please connect them with us. No one should have to figure this out alone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- 7. CLOSING -->
+    <section id="closing">
+      <div class="wrap">
+        <div class="section-heading">
+          <span class="section-number">Section 7</span>
+          <h2 class="section-title">Closing</h2>
+        </div>
+        <div class="prose">
+          <p>Losing a limb doesn't mean losing your future. Sometimes it simply means discovering a different road to travel &mdash; and no one should have to travel it alone.</p>
+          <p>John Thompson has lived that truth every day since his amputation. He has faced surgeries, rehabilitation, phantom pain, and the slow, difficult work of rebuilding his life. He has also experienced the profound impact of community &mdash; of being surrounded by people who understand, who care, and who refuse to let him quit.</p>
+          <p>Lost Limb Riders is John's way of paying that forward.</p>
+          <p>Every amputee who receives a peer visit, every new rider who discovers they can still ride, every person who finds community and hope through our programs &mdash; that is the mission in action. That is what your support makes possible.</p>
+        </div>
+
+        <div class="quote-box" style="margin-top:40px; text-align:center; border-left:0; border-top:4px solid var(--orange); border-radius: 28px;">
+          <p style="color:var(--muted); margin-bottom:12px; font-size:16px;">John Thompson's motto has carried him through the hardest moments of his life. It is the foundation of everything he builds.</p>
+          <h3 style="font-size:clamp(40px, 6vw, 72px); letter-spacing:-.03em;">&#8220;I Can. I Will.&#8221;</h3>
+        </div>
+
+        <div class="prose" style="margin-top:40px;">
+          <p>He invites you to be part of this journey. Whether you ride, volunteer, donate, sponsor, or simply spread the word &mdash; you are helping build something that will outlast any one of us. You are helping ensure that the next person who loses a limb in Iowa will not face it alone.</p>
+          <p>Thank you for your time. Thank you for your consideration. And if you ever want to ride with us &mdash; you're welcome.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING CONTACT -->
+    <section class="cta-section">
+      <div class="wrap" style="text-align:center;">
+        <h2 class="section-title">Lost Limb <span class="orange">Riders</span></h2>
+        <p style="color:var(--muted); font-size:18px; margin-bottom:8px; font-style:italic;">Building Hope, Independence, and Community for Amputees and People with Disabilities</p>
+        <p style="color:#d4d4d4; font-size:17px; margin-bottom:6px;"><strong>Founder:</strong> John Thompson</p>
+        <p style="color:#d4d4d4; font-size:17px; margin-bottom:6px;"><strong>Address:</strong> 514 N 6th St, Fort Dodge, IA 50501</p>
+        <p style="color:#d4d4d4; font-size:17px; margin-bottom:30px;"><strong>Phone:</strong> 515&#8209;890&#8209;5765</p>
+
+        <div class="quote-box" style="display:inline-block; text-align:center; border-left:0; border-top:4px solid var(--orange); padding:24px 48px;">
+          <h3 style="margin:0; font-size:clamp(28px,4vw,44px);">&#8220;I Can. I Will.&#8221;</h3>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="tel:15158905765">Call / Text 515-890-5765</a>
+          <a class="btn btn-secondary" href="index.html">Back to Home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Lost Limb Riders Motorcycle Club &bull; Ride With Purpose &bull; Support Amputees &bull; Build Community &bull; Never Give Up
+  </footer>
+</body>
+</html>
