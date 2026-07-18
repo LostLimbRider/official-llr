@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost Limb Riders | Ride With Purpose</title>
+  <meta name="description" content="Lost Limb Riders is a nonprofit motorcycle community supporting amputees, riders, families, and supporters through purpose, brotherhood, and encouragement.">
+  <style>
+    :root {
+      --orange: #ff6a00;
+      --orange-dark: #c94f00;
+      --black: #050505;
+      --charcoal: #101010;
+      --card: #171717;
+      --line: rgba(255,255,255,.14);
+      --muted: #b7b7b7;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(0,0,0,.45);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,106,0,.18), transparent 28rem),
+        radial-gradient(circle at 90% 18%, rgba(255,106,0,.12), transparent 26rem),
+        linear-gradient(180deg, rgba(255,255,255,.03), transparent 18rem);
+      z-index: -1;
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 7vw;
+      background: rgba(5,5,5,.88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 220px;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #dedede;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover { color: var(--orange); }
+
+    .hero {
+      min-height: calc(100vh - 83px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+      gap: 42px;
+      align-items: center;
+      padding: 72px 7vw;
+      background:
+        linear-gradient(90deg, rgba(5,5,5,.98), rgba(5,5,5,.75), rgba(5,5,5,.95)),
+        url("assets/LLR COVER POSTER.png") right center / contain no-repeat;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      border: 1px solid rgba(255,106,0,.75);
+      border-radius: 999px;
+      padding: 10px 15px;
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      background: rgba(255,106,0,.08);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      margin: 24px 0 22px;
+      font-size: clamp(58px, 10vw, 126px);
+      line-height: .82;
+      letter-spacing: -.06em;
+      text-transform: uppercase;
+    }
+
+    .orange { color: var(--orange); }
+    .lead {
+      max-width: 760px;
+      color: #e0e0e0;
+      font-size: clamp(18px, 2.1vw, 25px);
+      line-height: 1.45;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn, button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 15px 22px;
+      border: 0;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .btn-primary, button {
+      background: var(--orange);
+      color: #111;
+      box-shadow: 0 18px 36px rgba(255,106,0,.2);
+    }
+
+    .btn-primary:hover, button:hover { background: #ff7b1f; }
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.28);
+      color: var(--white);
+      background: rgba(255,255,255,.07);
+    }
+
+    .hero-card, .panel, .card {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(28,28,28,.92), rgba(9,9,9,.92));
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 30px;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-card img {
+      width: 150px;
+      margin: 0 auto 20px;
+      filter: drop-shadow(0 20px 30px rgba(0,0,0,.45));
+    }
+
+    .hero-card h2 {
+      margin-bottom: 18px;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: .95;
+      text-transform: uppercase;
+    }
+
+    .check {
+      display: flex;
+      gap: 12px;
+      margin: 16px 0;
+      color: #dddddd;
+      font-size: 17px;
+      line-height: 1.45;
+    }
+
+    .check b { color: var(--orange); }
+    section { padding: 84px 7vw; }
+    .wrap { max-width: 1180px; margin: 0 auto; }
+
+    .section-heading {
+      max-width: 820px;
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: clamp(38px, 5.5vw, 76px);
+      line-height: .92;
+      letter-spacing: -.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card, .panel { padding: 28px; }
+    .card h3 {
+      color: var(--orange);
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .card p, .panel p {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 17px;
+    }
+
+    .statement {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255,106,0,.16), rgba(255,255,255,.03));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .statement h2 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 90px);
+      line-height: .9;
+      letter-spacing: -.05em;
+      text-transform: uppercase;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .book-card {
+      display: grid;
+      grid-template-columns: 190px minmax(0,1fr);
+      gap: 22px;
+      align-items: center;
+    }
+
+    .book-cover {
+      border-radius: 18px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.55);
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 20px 0;
+    }
+
+    .speaker-list {
+      margin: 0;
+      padding-left: 20px;
+      color: #d6d6d6;
+      line-height: 1.8;
+    }
+
+    .quote-box {
+      margin: 24px 0;
+      padding: 24px;
+      border-left: 6px solid var(--orange);
+      border-radius: 18px;
+      background: rgba(255,106,0,.08);
+    }
+
+    .quote-box h3 {
+      margin: 0 0 8px;
+      color: var(--white);
+      font-size: clamp(30px, 4vw, 48px);
+      text-transform: uppercase;
+    }
+
+    .form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 14px;
+      outline: 0;
+      background: #090909;
+      color: var(--white);
+      font: inherit;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 4px rgba(255,106,0,.16);
+    }
+
+    textarea {
+      grid-column: 1 / -1;
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .form button, .status { grid-column: 1 / -1; }
+    .status {
+      min-height: 22px;
+      color: var(--orange);
+      font-weight: 800;
+    }
+
+    .guestbook-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+      max-height: 380px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .guest-entry {
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      background: rgba(255,255,255,.05);
+    }
+
+    .guest-entry strong { color: var(--white); }
+    .guest-entry small { color: #8f8f8f; display: block; margin-top: 4px; }
+    .guest-entry p { margin: 10px 0 0; color: #d7d7d7; }
+
+    footer {
+      padding: 34px 7vw;
+      color: #858585;
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 940px) {
+      .nav { position: static; align-items: flex-start; flex-direction: column; }
+      .nav-links { flex-wrap: wrap; }
+      .hero, .grid, .split, .form, .two-column { grid-template-columns: 1fr; }
+      .hero { min-height: auto; background-position: center bottom; }
+      .book-card { grid-template-columns: 150px 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .brand { min-width: 0; }
+      .brand img { width: 44px; height: 44px; }
+      .nav-links { gap: 12px; font-size: 12px; }
+      section, .hero { padding-left: 22px; padding-right: 22px; }
+      .book-card { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -.045em; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="#top" aria-label="Lost Limb Riders home">
+      <img src="assets/logo-nobg.png" alt="Lost Limb Riders logo">
+      <span>Lost Limb Riders</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="mission.html">Mission</a>
+      <a href="#keynote">Book John</a>
+      <a href="#book">Book</a>
+      <a href="#guestbook">Guest Book</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div>
+      <div class="eyebrow">Amputees • Riders • Purpose</div>
+      <h1>Lost Limb <span class="orange">Riders</span></h1>
+      <p class="lead">A nonprofit motorcycle community built by amputees for amputees, families, riders, veterans, and supporters who believe the road does not end after limb loss.</p>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="tel:15158905765">Call 515-890-5765</a>
+        <a class="btn btn-secondary" href="#guestbook">Sign the Guest Book</a>
+      </div>
+    </div>
+
+    <aside class="hero-card" aria-labelledby="freedom-title">
+      <img src="assets/logo.png" alt="Lost Limb Riders motorcycle logo">
+      <h2 id="freedom-title">Lost Limbs.<br><span class="orange">Found Freedom.</span></h2>
+      <div class="check"><b>✓</b><span>Support amputees rebuilding independence and confidence.</span></div>
+      <div class="check"><b>✓</b><span>Build brotherhood and sisterhood through motorcycle culture.</span></div>
+      <div class="check"><b>✓</b><span>Ride with purpose so nobody has to ride alone.</span></div>
+      <div class="check"><b>✓</b><span>Never give up. Never back down.</span></div>
+    </aside>
+  </header>
+
+  <main>
+    <section id="mission">
+      <div class="wrap">
+        <div class="section-heading">
+          <h2 class="section-title">Ride With <span class="orange">Purpose</span></h2>
+          <p class="lead">Lost Limb Riders brings people together around encouragement, awareness, practical support, and the grit it takes to keep moving forward.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Brotherhood & Sisterhood</h3>
+            <p>Real connection for amputees, families, riders, veterans, supporters, and anyone who believes healing is stronger when people show up for each other.</p>
+          </article>
+
+          <article class="card">
+            <h3>Community Support</h3>
+            <p>Every ride, event, conversation, and fundraiser exists to raise awareness and support people adapting to life after limb loss.</p>
+          </article>
+
+          <article class="card">
+            <h3>Forward Motion</h3>
+            <p>The mission is simple: help amputees find confidence, dignity, friendship, and the courage to keep shifting gears.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="statement" aria-label="Lost Limb Riders motto">
+      <div class="wrap">
+        <h2>Amputees Don’t Quit.<br><span class="orange">They Just Shift Gears.</span></h2>
+      </div>
+    </section>
+
+    <section id="keynote">
+      <div class="wrap split">
+        <article class="panel">
+          <h2 class="section-title">Book John <span class="orange">Thompson</span></h2>
+          <p>John’s keynote, <strong>I Can. I Will.</strong>, is a raw, funny, powerful message about limb loss, survival, faith, family, recovery, phantom pain, prosthetics, and finding purpose after life changes forever.</p>
+          <p>John does not deliver empty motivational clichés. He delivers a message earned through experience that challenges people to stop focusing only on what they lost and start discovering what is still possible.</p>
+
+          <div class="quote-box">
+            <h3>“I Can. I Will.”</h3>
+            <p>Because the only word that does not belong in your vocabulary is <strong>can’t</strong>.</p>
+          </div>
+
+          <a class="btn btn-primary" href="tel:15158905765">Book John • Call 515-890-5765</a>
+        </article>
+
+        <article class="card">
+          <h3>Perfect For</h3>
+          <div class="two-column">
+            <ul class="speaker-list">
+              <li>Hospitals & rehabilitation centers</li>
+              <li>Healthcare conferences</li>
+              <li>Nonprofit organizations</li>
+              <li>Schools & universities</li>
+              <li>Veterans organizations</li>
+              <li>Corporate leadership events</li>
+            </ul>
+            <ul class="speaker-list">
+              <li>Recovery & addiction programs</li>
+              <li>Churches & faith-based events</li>
+              <li>Motorcycle rallies & charity events</li>
+              <li>Disability advocacy organizations</li>
+              <li>First responders</li>
+              <li>Community organizations</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="book">
+      <div class="wrap panel book-card">
+        <img class="book-cover" src="assets/icaniwill.png" alt="I Can I Will book cover by John Thompson">
+        <div>
+          <h2 class="section-title">Buy John’s <span class="orange">Book</span></h2>
+          <p><strong>I Can. I Will.</strong> is John Thompson’s autobiography about surviving limb loss, fighting through pain and doubt, leaning on faith and family, and turning a life-changing setback into the Lost Limb Riders mission.</p>
+          <p>The story is gritty, honest, road-tested, and built around a promise that amputees can keep moving forward with purpose.</p>
+          <a class="btn btn-primary" href="tel:15158905765">Call 515-890-5765</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="guestbook">
+      <div class="wrap split">
+        <article class="panel">
+          <h2 class="section-title">Guest <span class="orange">Book</span></h2>
+          <p class="lead">Leave a message of support, share your ride story, or encourage another amputee who needs to hear they are not alone.</p>
+
+          <form id="guestbookForm">
+            <div class="form">
+              <input id="guestName" autocomplete="name" placeholder="Your name" required>
+              <input id="guestLocation" autocomplete="address-level2" placeholder="City / chapter / optional">
+              <textarea id="guestMessage" placeholder="Write your guest book message" required></textarea>
+              <button type="submit">Sign the Guest Book</button>
+              <div id="guestStatus" class="status" role="status" aria-live="polite"></div>
+            </div>
+          </form>
+        </article>
+
+        <aside class="card">
+          <h3>Community Messages</h3>
+          <p>Messages save in this browser so the page keeps working as a simple one-page site with no broken backend dependency.</p>
+          <div id="guestbookList" class="guestbook-list" aria-live="polite"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap panel">
+        <h2 class="section-title">Become Part of <span class="orange">the Ride</span></h2>
+        <p class="lead">Interested in joining, volunteering, sponsoring, booking John, or getting book updates? Reach out and connect with Lost Limb Riders.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="tel:15158905765">Call / Text 515-890-5765</a>
+          <a class="btn btn-secondary" href="#top">Back to Top</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Lost Limb Riders Motorcycle Club • Ride With Purpose • Support Amputees • Build Community • Never Give Up
+  </footer>
+
+  <script>
+    const storageKey = 'lost-limb-riders-guestbook';
+    const form = document.getElementById('guestbookForm');
+    const list = document.getElementById('guestbookList');
+    const status = document.getElementById('guestStatus');
+
+    const fallbackEntries = [
+      {
+        name: 'Lost Limb Riders',
+        location: 'Community',
+        message: 'Welcome to the guest book. Drop a note of support and keep the mission moving.',
+        date: 'Pinned message'
+      }
+    ];
+
+    function getEntries() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
+        return Array.isArray(saved) && saved.length ? saved : fallbackEntries;
+      } catch (error) {
+        return fallbackEntries;
+      }
+    }
+
+    function saveEntries(entries) {
+      localStorage.setItem(storageKey, JSON.stringify(entries.filter(entry => entry.date !== 'Pinned message')));
+    }
+
+    function escapeHtml(value) {
+      return value.replace(/[&<>'"]/g, character => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+      }[character]));
+    }
+
+    function renderEntries() {
+      list.innerHTML = getEntries().map(entry => `
+        <article class="guest-entry">
+          <strong>${escapeHtml(entry.name)}</strong>
+          <small>${escapeHtml([entry.location, entry.date].filter(Boolean).join(' • '))}</small>
+          <p>${escapeHtml(entry.message)}</p>
+        </article>
+      `).join('');
+    }
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+
+      const name = document.getElementById('guestName').value.trim();
+      const location = document.getElementById('guestLocation').value.trim();
+      const message = document.getElementById('guestMessage').value.trim();
+
+      if (!name || !message) {
+        status.textContent = 'Please add your name and message.';
+        return;
+      }
+
+      const entries = getEntries().filter(entry => entry.date !== 'Pinned message');
+      entries.unshift({
+        name,
+        location,
+        message,
+        date: new Date().toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })
+      });
+
+      saveEntries(entries.slice(0, 25));
+      form.reset();
+      status.textContent = 'Your message was added to the guest book.';
+      renderEntries();
+    });
+
+    renderEntries();
+  </script>
+</body>
+</html>
