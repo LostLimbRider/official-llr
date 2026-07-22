@@ -1,326 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Support Initiative | Lost Limb Riders</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <meta name="description" content="Lost Limb Riders Family Support Initiative supports spouses, children, parents, caregivers, and supporters throughout the amputee recovery journey.">
+  <style>
+    :root {
+      --orange: #ff6a00;
+      --black: #050505;
+      --card: #171717;
+      --line: rgba(255,255,255,.14);
+      --muted: #b7b7b7;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(0,0,0,.45);
+    }
 
-<title>Family Support Initiative | Lost Limb Riders</title>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
 
-<style>
-body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#111;
-    color:#f2f2f2;
-    line-height:1.7;
-}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,106,0,.18), transparent 28rem),
+        radial-gradient(circle at 90% 18%, rgba(255,106,0,.12), transparent 26rem),
+        linear-gradient(180deg, rgba(255,255,255,.03), transparent 18rem);
+      z-index: -1;
+    }
 
-header{
-    background:url("images/family-hero.jpg") center/cover no-repeat;
-    height:450px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    h1, h2, h3, p { margin-top: 0; }
 
-header .overlay{
-    background:rgba(0,0,0,.65);
-    padding:40px;
-    width:100%;
-}
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 7vw;
+      background: rgba(5,5,5,.88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
 
-h1{
-    color:#ff7a00;
-    font-size:48px;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 220px;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
 
-h2{
-    color:#ff7a00;
-    margin-top:50px;
-}
+    .brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+    }
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-    padding:50px 0;
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #dedede;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
 
-.section{
-    margin-bottom:60px;
-}
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--orange); }
 
-.image{
-    width:100%;
-    max-width:900px;
-    display:block;
-    margin:30px auto;
-    border-radius:10px;
-    border:3px solid #ff7a00;
-}
+    .wrap { max-width: 1180px; margin: 0 auto; }
+    .orange { color: var(--orange); }
 
-.card{
-    background:#1d1d1d;
-    padding:25px;
-    margin:20px 0;
-    border-left:5px solid #ff7a00;
-    border-radius:8px;
-}
+    .family-hero {
+      min-height: calc(92vh - 83px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+      gap: 42px;
+      align-items: center;
+      padding: 88px 7vw;
+      background:
+        linear-gradient(90deg, rgba(5,5,5,.98), rgba(5,5,5,.78), rgba(5,5,5,.95)),
+        url("assets/1000000444.jpg") right center / cover no-repeat;
+    }
 
-ul li{
-    margin:12px 0;
-}
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      border: 1px solid rgba(255,106,0,.75);
+      border-radius: 999px;
+      padding: 10px 15px;
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      background: rgba(255,106,0,.08);
+    }
 
-footer{
-    background:#000;
-    text-align:center;
-    padding:40px;
-    margin-top:60px;
-}
+    h1 {
+      margin: 24px 0 22px;
+      font-size: clamp(52px, 9vw, 112px);
+      line-height: .84;
+      letter-spacing: -.06em;
+      text-transform: uppercase;
+    }
 
-.quote{
-    font-size:28px;
-    color:#ff7a00;
-    text-align:center;
-    margin-top:50px;
-}
-</style>
+    .lead {
+      max-width: 790px;
+      color: #e0e0e0;
+      font-size: clamp(18px, 2.1vw, 25px);
+      line-height: 1.45;
+    }
 
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 15px 22px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #111;
+      box-shadow: 0 18px 36px rgba(255,106,0,.2);
+    }
+
+    .btn-primary:hover { background: #ff7b1f; }
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.28);
+      color: var(--white);
+      background: rgba(255,255,255,.07);
+    }
+
+    .panel, .card {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(28,28,28,.92), rgba(9,9,9,.92));
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .hero-card img {
+      width: 150px;
+      margin: 0 auto 20px;
+      filter: drop-shadow(0 20px 30px rgba(0,0,0,.45));
+    }
+
+    .hero-card h2 {
+      margin-bottom: 18px;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: .95;
+      text-transform: uppercase;
+    }
+
+    .check {
+      display: flex;
+      gap: 12px;
+      margin: 16px 0;
+      color: #dddddd;
+      font-size: 17px;
+      line-height: 1.45;
+    }
+
+    .check b { color: var(--orange); }
+    section { padding: 84px 7vw; }
+
+    .section-heading {
+      max-width: 840px;
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: clamp(38px, 5.5vw, 76px);
+      line-height: .92;
+      letter-spacing: -.04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .card h3 {
+      color: var(--orange);
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .card p, .panel p, .resource-list, .family-list {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 17px;
+    }
+
+    .family-list, .resource-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .family-list li, .resource-list li { margin: 10px 0; }
+
+    .statement {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255,106,0,.16), rgba(255,255,255,.03));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .statement h2 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 90px);
+      line-height: .9;
+      letter-spacing: -.05em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      padding: 34px 7vw;
+      color: #858585;
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 940px) {
+      .nav { position: static; align-items: flex-start; flex-direction: column; }
+      .nav-links { flex-wrap: wrap; }
+      .family-hero, .grid, .split { grid-template-columns: 1fr; }
+      .family-hero { min-height: auto; background-position: center; }
+    }
+
+    @media (max-width: 560px) {
+      .brand { min-width: 0; }
+      .brand img { width: 44px; height: 44px; }
+      .nav-links { gap: 12px; font-size: 12px; }
+      section, .family-hero { padding-left: 22px; padding-right: 22px; }
+      h1 { letter-spacing: -.045em; }
+    }
+  </style>
 </head>
-
 <body>
-
-<header>
-<div class="overlay">
-<h1>Family Support Initiative</h1>
-
-<p>
-Supporting the families behind every rider.<br>
-Because recovery is stronger when no one stands alone.
-</p>
-
-</div>
-</header>
-
-<div class="container">
-
-<section class="section">
-
-<h2>Our Mission</h2>
-
-<img src="images/family-support-placeholder.jpg"
-alt="Family Support"
-class="image">
-
-<p>
-
-An amputation impacts far more than the individual. It affects spouses, children,
-parents, caregivers, friends, and everyone who walks beside them.
-
-Lost Limb Riders created the Family Support Initiative to provide education,
-encouragement, fellowship, and resources for the entire family throughout the
-recovery journey.
-
-</p>
-
-</section>
-
-<section class="section">
-
-<h2>Who Can Participate?</h2>
-
-<div class="card">
-
-<ul>
-
-<li>Spouses & Partners</li>
-
-<li>Children</li>
-
-<li>Parents</li>
-
-<li>Grandparents</li>
-
-<li>Siblings</li>
-
-<li>Caregivers</li>
-
-<li>Immediate Family Members</li>
-
-<li>Support Persons</li>
-
-</ul>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2>Family Orientation</h2>
-
-<img src="images/orientation-placeholder.jpg"
-class="image">
-
-<p>
-
-Every new member and family is welcomed through an orientation introducing
-Lost Limb Riders, our mission, volunteer opportunities, event safety,
-membership expectations, and available support resources.
-
-</p>
-
-</section>
-
-<section class="section">
-
-<h2>Support Services</h2>
-
-<div class="card">
-
-<ul>
-
-<li>Monthly Family Support Meetings</li>
-
-<li>Peer-to-Peer Encouragement</li>
-
-<li>Caregiver Support Groups</li>
-
-<li>Educational Workshops</li>
-
-<li>Family Cookouts</li>
-
-<li>Holiday Celebrations</li>
-
-<li>Community Events</li>
-
-<li>Hospital & Rehabilitation Visits</li>
-
-<li>Resource Referrals</li>
-
-<li>Mental Health Resource Information</li>
-
-</ul>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2>Children Matter Too</h2>
-
-<img src="images/kids-placeholder.jpg"
-class="image">
-
-<p>
-
-Children often struggle to understand limb loss.
-Lost Limb Riders provides opportunities for family-friendly activities,
-games, educational events, and community gatherings where children
-can simply enjoy being kids while meeting others who understand.
-
-</p>
-
-</section>
-
-<section class="section">
-
-<h2>Community Resources</h2>
-
-<div class="card">
-
-<ul>
-
-<li>Rehabilitation Services</li>
-
-<li>Prosthetic Providers</li>
-
-<li>Veterans Resources</li>
-
-<li>Employment Assistance</li>
-
-<li>Housing Information</li>
-
-<li>Transportation Resources</li>
-
-<li>Disability Benefits</li>
-
-<li>Counseling Referrals</li>
-
-</ul>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2>Volunteer Responsibilities</h2>
-
-<div class="card">
-
-<ul>
-
-<li>Treat every family with dignity.</li>
-
-<li>Respect confidentiality.</li>
-
-<li>Listen without judgment.</li>
-
-<li>Avoid medical or legal advice.</li>
-
-<li>Encourage hope and independence.</li>
-
-<li>Represent Lost Limb Riders professionally.</li>
-
-</ul>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2>Our Commitment</h2>
-
-<p>
-
-Recovery does not happen alone.
-
-When families receive encouragement, education, and community,
-everyone grows stronger.
-
-Lost Limb Riders is committed to helping every family discover hope,
-purpose, and a supportive community that lasts well beyond recovery.
-
-</p>
-
-<div class="quote">
-
-"Nobody Is Left Behind.<br>
-Nobody Stands Alone."
-
-</div>
-
-</section>
-
-</div>
-
-<footer>
-
-<h2>Lost Limb Riders</h2>
-
-<p>
-Building Brotherhood • Building Sisterhood • Restoring Hope
-</p>
-
-<p>
-Together We Ride Forward.
-</p>
-
-</footer>
-
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="index.html#top" aria-label="Lost Limb Riders home">
+      <img src="assets/logo-nobg.png" alt="Lost Limb Riders logo">
+      <span>Lost Limb Riders</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="mission.html">Mission</a>
+      <a href="fsi.html" aria-current="page">Family Initiative</a>
+      <a href="index.html#keynote">Book John</a>
+      <a href="index.html#guestbook">Guest Book</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="family-hero" id="top">
+    <div>
+      <div class="eyebrow">Family • Caregivers • Community</div>
+      <h1>Family Support <span class="orange">Initiative</span></h1>
+      <p class="lead">Supporting the families behind every rider, because recovery is stronger when no one stands alone.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="tel:15158905765">Call 515-890-5765</a>
+        <a class="btn btn-secondary" href="#support">Explore Support</a>
+      </div>
+    </div>
+
+    <aside class="panel hero-card" aria-labelledby="family-promise-title">
+      <img src="assets/logo.png" alt="Lost Limb Riders motorcycle logo">
+      <h2 id="family-promise-title">Nobody Is Left Behind.<br><span class="orange">Nobody Stands Alone.</span></h2>
+      <div class="check"><b>✓</b><span>Welcome spouses, children, parents, caregivers, and supporters.</span></div>
+      <div class="check"><b>✓</b><span>Offer fellowship, education, encouragement, and practical resource referrals.</span></div>
+      <div class="check"><b>✓</b><span>Create family-friendly gatherings where every person belongs.</span></div>
+    </aside>
+  </header>
+
+  <main>
+    <section id="mission">
+      <div class="wrap split">
+        <article class="panel">
+          <h2 class="section-title">Our <span class="orange">Mission</span></h2>
+          <p>An amputation impacts far more than the individual. It affects spouses, children, parents, caregivers, friends, and everyone who walks beside them.</p>
+          <p>Lost Limb Riders created the Family Support Initiative to provide education, encouragement, fellowship, and resources for the entire family throughout the recovery journey.</p>
+        </article>
+        <article class="card">
+          <h3>Who Can Participate?</h3>
+          <ul class="family-list">
+            <li>Spouses and partners</li>
+            <li>Children, parents, grandparents, and siblings</li>
+            <li>Caregivers and immediate family members</li>
+            <li>Trusted support persons walking alongside recovery</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="statement" aria-label="Family Support Initiative promise">
+      <div class="wrap">
+        <h2>Recovery Does Not Happen Alone.<br><span class="orange">Together We Ride Forward.</span></h2>
+      </div>
+    </section>
+
+    <section id="support">
+      <div class="wrap">
+        <div class="section-heading">
+          <h2 class="section-title">Support For The <span class="orange">Whole Family</span></h2>
+          <p class="lead">The initiative connects families to orientation, peer encouragement, events, and resource information that help rebuild hope and independence.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Family Orientation</h3>
+            <p>Every new member and family is welcomed through an orientation introducing Lost Limb Riders, volunteer opportunities, event safety, membership expectations, and available support resources.</p>
+          </article>
+          <article class="card">
+            <h3>Support Services</h3>
+            <p>Monthly family support meetings, peer-to-peer encouragement, caregiver groups, educational workshops, cookouts, holiday celebrations, community events, and hospital or rehabilitation visits.</p>
+          </article>
+          <article class="card">
+            <h3>Children Matter Too</h3>
+            <p>Family-friendly activities, games, educational events, and community gatherings give children space to be kids while meeting others who understand limb loss.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources">
+      <div class="wrap split">
+        <article class="card">
+          <h3>Community Resources</h3>
+          <ul class="resource-list">
+            <li>Rehabilitation services and prosthetic providers</li>
+            <li>Veterans resources and disability benefits information</li>
+            <li>Employment, housing, and transportation resources</li>
+            <li>Counseling referrals and mental health resource information</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Volunteer Responsibilities</h3>
+          <ul class="resource-list">
+            <li>Treat every family with dignity and respect confidentiality.</li>
+            <li>Listen without judgment and avoid medical or legal advice.</li>
+            <li>Encourage hope, independence, and professional representation of Lost Limb Riders.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap panel">
+        <h2 class="section-title">Get Connected With <span class="orange">Family Support</span></h2>
+        <p class="lead">When families receive encouragement, education, and community, everyone grows stronger. Reach out to learn more, volunteer, or help a family connect with Lost Limb Riders.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="tel:15158905765">Call / Text 515-890-5765</a>
+          <a class="btn btn-secondary" href="index.html#top">Back to Home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Lost Limb Riders Motorcycle Club • Family Support Initiative • Building Brotherhood • Building Sisterhood • Restoring Hope
+  </footer>
 </body>
 </html>
